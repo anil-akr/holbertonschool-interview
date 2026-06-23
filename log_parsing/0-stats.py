@@ -32,6 +32,9 @@ if __name__ == "__main__":
 
             parts = line.split()
 
+            if len(parts) < 2:
+                continue
+
             try:
                 status = int(parts[-2])
                 file_size = int(parts[-1])
