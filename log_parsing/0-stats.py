@@ -22,20 +22,22 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             line = line.strip()
-
             parts = line.split()
 
             if len(parts) < 2:
                 continue
 
             try:
-                status = int(parts[-2])
                 file_size = int(parts[-1])
             except ValueError:
                 continue
 
-            if status in status_counts:
-                status_counts[status] += 1
+            try:
+                status = int(parts[-2])
+                if status in status_counts:
+                    status_counts[status] += 1
+            except ValueError:
+                pass
 
             total_size += file_size
             line_count += 1
