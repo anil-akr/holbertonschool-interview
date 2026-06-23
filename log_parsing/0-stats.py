@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Log parsing script that reads stdin and computes metrics"""
 import sys
-import re
 
 
 def print_stats(total_size, status_counts):
@@ -13,9 +12,6 @@ def print_stats(total_size, status_counts):
 
 
 if __name__ == "__main__":
-    pattern = re.compile(
-        r'^\d+\.\d+\.\d+\.\d+ - \[.+\] "GET /projects/260 HTTP/1\.1" \d+ \d+$'
-    )
 
     valid_codes = [200, 301, 400, 401, 403, 404, 405, 500]
 
@@ -26,9 +22,6 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             line = line.strip()
-
-            if not pattern.match(line):
-                continue
 
             parts = line.split()
 
