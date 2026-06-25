@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# npm metadata (modules installés en global sur Holberton)
+package.json
+package-lock.json
+
+# Logs
+npm-debug.log*
